@@ -5,7 +5,7 @@ export type ButtonProps = ComponentPropsWithRef<typeof BaseButton>;
 
 /**
  * Ciamix Button: unstyled wrapper around Base UI's Button.
- * Add design styles here once they are decided. Base UI sets `data-disabled` for styling.
+ * Add styles here once the design is decided.
  * Docs: https://base-ui.com/react/components/button
  */
 export function Button(props: ButtonProps) {

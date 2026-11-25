@@ -1,0 +1,73 @@
+/* Make headless controls visible and usable in the playground. */
+.demo-choice {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 1.25em;
+  block-size: 1.25em;
+  margin-inline-end: 0.25em;
+  border: 1px solid currentColor;
+  vertical-align: middle;
+}
+
+.demo-switch-thumb {
+  inline-size: 0.6em;
+  block-size: 0.6em;
+  border: 1px solid currentColor;
+}
+
+.demo-choice[data-checked] > .demo-switch-thumb {
+  background: currentColor;
+}
+
+.demo-slider-control {
+  display: grid;
+  align-items: center;
+  inline-size: min(12rem, 100%);
+  block-size: 1.5rem;
+}
+
+.demo-slider-track {
+  block-size: 0.25rem;
+  outline: 1px solid currentColor;
+}
+
+.demo-slider-indicator {
+  background: currentColor;
+  block-size: 100%;
+}
+
+.demo-slider-thumb {
+  inline-size: 1em;
+  block-size: 1em;
+  background: CanvasText;
+}
+
+.demo-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, CanvasText 25%, transparent);
+}
+
+.demo-modal-viewport {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.demo-modal-popup {
+  box-sizing: border-box;
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  overflow: auto;
+  padding: 1rem;
+  border: 1px solid CanvasText;
+  background: Canvas;
+  color: CanvasText;
+}
+
+.demo-drawer-viewport {
+  place-items: stretch end;
+  padding: 0;
+}

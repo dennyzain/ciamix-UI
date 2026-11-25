@@ -5,8 +5,7 @@ export type InputProps = ComponentPropsWithRef<typeof BaseInput>;
 
 /**
  * Ciamix Input: unstyled wrapper around Base UI's Input.
- * Add design styles here once they are decided. Inside a Field, Base UI sets
- * `data-focused`, `data-invalid`, `data-filled`, `data-disabled` and related attributes.
+ * Add styles here once the design is decided.
  * Docs: https://base-ui.com/react/components/input
  */
 export function Input(props: InputProps) {
