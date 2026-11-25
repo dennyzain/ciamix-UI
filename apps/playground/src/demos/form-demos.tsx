@@ -120,8 +120,8 @@ function CheckboxGroupDemo() {
       <div id={id}>Apples</div>
       {apples.map(({ label, value }) => (
         <label key={value}>
-          <Checkbox.Root className="demo-choice" name="apple" value={value}>
-            <Checkbox.Indicator>✓</Checkbox.Indicator>
+          <Checkbox.Root name="apple" value={value}>
+            <Checkbox.Indicator />
           </Checkbox.Root>
           {label}
         </label>
@@ -137,8 +137,8 @@ function RadioGroupDemo() {
       <div id={id}>Best apple</div>
       {apples.map(({ label, value }) => (
         <label key={value}>
-          <Radio.Root className="demo-choice" value={value}>
-            <Radio.Indicator>●</Radio.Indicator>
+          <Radio.Root value={value}>
+            <Radio.Indicator />
           </Radio.Root>
           {label}
         </label>
@@ -168,10 +168,14 @@ export const formDemos: Demo[] = [
   {
     name: 'Button',
     render: () => (
-      <>
+      <div className="demo-actions">
         <Button>Default</Button>
+        <Button variant="default">Primary</Button>
+        <Button variant="raised">Raised</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="destructive">Remove</Button>
         <Button disabled>Disabled</Button>
-      </>
+      </div>
     ),
   },
   {
@@ -193,7 +197,7 @@ export const formDemos: Demo[] = [
           <Field.Description>Shown on your profile</Field.Description>
           <Field.Error match="valueMissing">Please enter your name</Field.Error>
         </Field.Root>
-        <Button type="submit">Submit</Button>
+        <Button variant="default" type="submit">Submit</Button>
       </Form>
     ),
   },
@@ -213,8 +217,8 @@ export const formDemos: Demo[] = [
     name: 'Checkbox',
     render: () => (
       <label>
-        <Checkbox.Root className="demo-choice" defaultChecked>
-          <Checkbox.Indicator>✓</Checkbox.Indicator>
+        <Checkbox.Root defaultChecked>
+          <Checkbox.Indicator />
         </Checkbox.Root>
         Enable notifications
       </label>
@@ -226,8 +230,8 @@ export const formDemos: Demo[] = [
     name: 'Switch',
     render: () => (
       <label>
-        <Switch.Root className="demo-choice" defaultChecked>
-          <Switch.Thumb className="demo-switch-thumb" />
+        <Switch.Root defaultChecked>
+          <Switch.Thumb />
         </Switch.Root>
         Notifications
       </label>
@@ -239,10 +243,10 @@ export const formDemos: Demo[] = [
       <Slider.Root defaultValue={25}>
         <Slider.Label>Volume</Slider.Label>
         <Slider.Value />
-        <Slider.Control className="demo-slider-control">
-          <Slider.Track className="demo-slider-track">
-            <Slider.Indicator className="demo-slider-indicator" />
-            <Slider.Thumb className="demo-slider-thumb" aria-label="Volume" />
+        <Slider.Control>
+          <Slider.Track>
+            <Slider.Indicator />
+            <Slider.Thumb aria-label="Volume" />
           </Slider.Track>
         </Slider.Control>
       </Slider.Root>

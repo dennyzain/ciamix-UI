@@ -1,6 +1,13 @@
-/**
- * Ciamix ToggleGroup: re-exported from Base UI as-is because it is generic over its value type,
- * and wrapping it would lose that typing. Style it with `className` where it is used.
- * Docs: https://base-ui.com/react/components/toggle-group
- */
-export { ToggleGroup } from '@base-ui/react/toggle-group';
+import { ToggleGroup as BaseToggleGroup } from '@base-ui/react/toggle-group';
+import type { RefAttributes } from 'react';
+
+export function ToggleGroup<Value extends string>(props: BaseToggleGroup.Props<Value> & RefAttributes<HTMLDivElement>) {
+  return <BaseToggleGroup data-ciamix="toggle-group" {...props} />;
+}
+
+export declare namespace ToggleGroup {
+  type Props<Value extends string = string> = BaseToggleGroup.Props<Value>;
+  type State = BaseToggleGroup.State;
+  type ChangeEventReason = BaseToggleGroup.ChangeEventReason;
+  type ChangeEventDetails = BaseToggleGroup.ChangeEventDetails;
+}

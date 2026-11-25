@@ -1,4 +1,4 @@
-// Components: one file per Base UI component in ./components, each unstyled until the design is decided.
+// Components: one file per Base UI component in ./components, with optional theme styles in styles.css.
 export { Accordion } from './components/accordion.tsx';
 export { AlertDialog } from './components/alert-dialog.tsx';
 export { Autocomplete } from './components/autocomplete.tsx';

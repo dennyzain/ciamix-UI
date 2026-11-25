@@ -1,10 +1,6 @@
 import { Accordion, Avatar, Collapsible, Meter, Progress, ScrollArea, Separator, Tabs, Toolbar } from '@ciamix/ui'
 import type { Demo } from './types.ts'
 
-// Preview-only outlines so tracks and bars are visible before any design exists.
-const outline = { border: '1px solid', width: 200, height: 8 }
-const fill = { background: 'currentColor', height: '100%' }
-
 export const displayDemos: Demo[] = [
   {
     name: 'Accordion',
@@ -49,9 +45,9 @@ export const displayDemos: Demo[] = [
     render: () => (
       <>
         <Avatar.Root>
-          <Avatar.Image src="https://avatars.githubusercontent.com/u/0?v=4" width={40} height={40} />
+          <Avatar.Image src="/favicon.svg" alt="Sample avatar" />
           <Avatar.Fallback>CU</Avatar.Fallback>
-        </Avatar.Root>
+        </Avatar.Root>{' '}
         <Avatar.Root>
           <Avatar.Fallback>LT</Avatar.Fallback>
         </Avatar.Root>
@@ -64,8 +60,8 @@ export const displayDemos: Demo[] = [
       <Meter.Root value={24}>
         <Meter.Label>Storage used</Meter.Label>
         <Meter.Value />
-        <Meter.Track style={outline}>
-          <Meter.Indicator style={fill} />
+        <Meter.Track>
+          <Meter.Indicator />
         </Meter.Track>
       </Meter.Root>
     ),
@@ -76,8 +72,8 @@ export const displayDemos: Demo[] = [
       <Progress.Root value={40}>
         <Progress.Label>Export data</Progress.Label>
         <Progress.Value />
-        <Progress.Track style={outline}>
-          <Progress.Indicator style={fill} />
+        <Progress.Track>
+          <Progress.Indicator />
         </Progress.Track>
       </Progress.Root>
     ),
@@ -85,8 +81,8 @@ export const displayDemos: Demo[] = [
   {
     name: 'Scroll Area',
     render: () => (
-      <ScrollArea.Root style={{ height: 80, width: 240, border: '1px solid' }}>
-        <ScrollArea.Viewport style={{ height: '100%' }}>
+      <ScrollArea.Root style={{ height: 112, width: 'min(100%, 15rem)' }}>
+        <ScrollArea.Viewport>
           <ScrollArea.Content>
             {Array.from({ length: 12 }, (_, i) => (
               <p key={i}>Line {i + 1}</p>
@@ -104,7 +100,7 @@ export const displayDemos: Demo[] = [
     render: () => (
       <>
         Above
-        <Separator style={{ borderTop: '1px solid' }} />
+        <Separator />
         Below
       </>
     ),

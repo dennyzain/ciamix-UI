@@ -1,35 +1,32 @@
 import { Toast as BaseToast } from '@base-ui/react/toast';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function ToastViewport(props: ComponentPropsWithRef<typeof BaseToast.Viewport>) {
-  return <BaseToast.Viewport {...props} />;
+  return <BaseToast.Viewport data-ciamix="toast-viewport" {...props} />;
 }
 
 function ToastRoot(props: ComponentPropsWithRef<typeof BaseToast.Root>) {
-  return <BaseToast.Root {...props} />;
+  return <BaseToast.Root data-ciamix="toast" {...props} />;
 }
 
 function ToastContent(props: ComponentPropsWithRef<typeof BaseToast.Content>) {
-  return <BaseToast.Content {...props} />;
+  return <BaseToast.Content data-ciamix="toast-content" {...props} />;
 }
 
 function ToastDescription(props: ComponentPropsWithRef<typeof BaseToast.Description>) {
-  return <BaseToast.Description {...props} />;
+  return <BaseToast.Description data-ciamix="description" {...props} />;
 }
 
 function ToastTitle(props: ComponentPropsWithRef<typeof BaseToast.Title>) {
-  return <BaseToast.Title {...props} />;
+  return <BaseToast.Title data-ciamix="title" {...props} />;
 }
 
 function ToastClose(props: ComponentPropsWithRef<typeof BaseToast.Close>) {
-  return <BaseToast.Close {...props} />;
+  return <BaseToast.Close data-ciamix="control" {...props} />;
 }
 
 function ToastAction(props: ComponentPropsWithRef<typeof BaseToast.Action>) {
-  return <BaseToast.Action {...props} />;
+  return <BaseToast.Action data-ciamix="control" {...props} />;
 }
 
 function ToastPortal(props: ComponentPropsWithRef<typeof BaseToast.Portal>) {
@@ -37,15 +34,15 @@ function ToastPortal(props: ComponentPropsWithRef<typeof BaseToast.Portal>) {
 }
 
 function ToastPositioner(props: ComponentPropsWithRef<typeof BaseToast.Positioner>) {
-  return <BaseToast.Positioner {...props} />;
+  return <BaseToast.Positioner data-ciamix="positioner" {...props} />;
 }
 
 function ToastArrow(props: ComponentPropsWithRef<typeof BaseToast.Arrow>) {
-  return <BaseToast.Arrow {...props} />;
+  return <BaseToast.Arrow data-ciamix="popup-arrow" {...props} />;
 }
 
 /**
- * Ciamix Toast: unstyled wrapper around Base UI's Toast.
+ * Ciamix Toast: wrapper around Base UI's Toast.
  * Docs: https://base-ui.com/react/components/toast
  */
 export const Toast = {

@@ -1,23 +1,20 @@
 import { Menu as BaseMenu } from '@base-ui/react/menu';
-import type { ComponentPropsWithRef } from 'react';
-
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
+import type { ComponentPropsWithRef, RefAttributes } from 'react';
 
 function MenuArrow(props: ComponentPropsWithRef<typeof BaseMenu.Arrow>) {
-  return <BaseMenu.Arrow {...props} />;
+  return <BaseMenu.Arrow data-ciamix="popup-arrow" {...props} />;
 }
 
 function MenuBackdrop(props: ComponentPropsWithRef<typeof BaseMenu.Backdrop>) {
-  return <BaseMenu.Backdrop {...props} />;
+  return <BaseMenu.Backdrop data-ciamix="modal-backdrop" {...props} />;
 }
 
 function MenuCheckboxItem(props: ComponentPropsWithRef<typeof BaseMenu.CheckboxItem>) {
-  return <BaseMenu.CheckboxItem {...props} />;
+  return <BaseMenu.CheckboxItem data-ciamix="option" {...props} />;
 }
 
 function MenuCheckboxItemIndicator(props: ComponentPropsWithRef<typeof BaseMenu.CheckboxItemIndicator>) {
-  return <BaseMenu.CheckboxItemIndicator {...props} />;
+  return <BaseMenu.CheckboxItemIndicator data-ciamix="option-indicator" {...props} />;
 }
 
 function MenuGroup(props: ComponentPropsWithRef<typeof BaseMenu.Group>) {
@@ -25,19 +22,19 @@ function MenuGroup(props: ComponentPropsWithRef<typeof BaseMenu.Group>) {
 }
 
 function MenuGroupLabel(props: ComponentPropsWithRef<typeof BaseMenu.GroupLabel>) {
-  return <BaseMenu.GroupLabel {...props} />;
+  return <BaseMenu.GroupLabel data-ciamix="group-label" {...props} />;
 }
 
 function MenuItem(props: ComponentPropsWithRef<typeof BaseMenu.Item>) {
-  return <BaseMenu.Item {...props} />;
+  return <BaseMenu.Item data-ciamix="option" {...props} />;
 }
 
 function MenuLinkItem(props: ComponentPropsWithRef<typeof BaseMenu.LinkItem>) {
-  return <BaseMenu.LinkItem {...props} />;
+  return <BaseMenu.LinkItem data-ciamix="option" {...props} />;
 }
 
 function MenuPopup(props: ComponentPropsWithRef<typeof BaseMenu.Popup>) {
-  return <BaseMenu.Popup {...props} />;
+  return <BaseMenu.Popup data-ciamix="menu-popup" {...props} />;
 }
 
 function MenuPortal(props: ComponentPropsWithRef<typeof BaseMenu.Portal>) {
@@ -45,7 +42,7 @@ function MenuPortal(props: ComponentPropsWithRef<typeof BaseMenu.Portal>) {
 }
 
 function MenuPositioner(props: ComponentPropsWithRef<typeof BaseMenu.Positioner>) {
-  return <BaseMenu.Positioner {...props} />;
+  return <BaseMenu.Positioner data-ciamix="positioner" {...props} />;
 }
 
 function MenuRadioGroup(props: ComponentPropsWithRef<typeof BaseMenu.RadioGroup>) {
@@ -53,11 +50,11 @@ function MenuRadioGroup(props: ComponentPropsWithRef<typeof BaseMenu.RadioGroup>
 }
 
 function MenuRadioItem(props: ComponentPropsWithRef<typeof BaseMenu.RadioItem>) {
-  return <BaseMenu.RadioItem {...props} />;
+  return <BaseMenu.RadioItem data-ciamix="option" {...props} />;
 }
 
 function MenuRadioItemIndicator(props: ComponentPropsWithRef<typeof BaseMenu.RadioItemIndicator>) {
-  return <BaseMenu.RadioItemIndicator {...props} />;
+  return <BaseMenu.RadioItemIndicator data-ciamix="option-indicator" {...props} />;
 }
 
 function MenuViewport(props: ComponentPropsWithRef<typeof BaseMenu.Viewport>) {
@@ -65,31 +62,35 @@ function MenuViewport(props: ComponentPropsWithRef<typeof BaseMenu.Viewport>) {
 }
 
 function MenuSeparator(props: ComponentPropsWithRef<typeof BaseMenu.Separator>) {
-  return <BaseMenu.Separator {...props} />;
+  return <BaseMenu.Separator data-ciamix="separator" {...props} />;
 }
 
 function MenuSubmenuTrigger(props: ComponentPropsWithRef<typeof BaseMenu.SubmenuTrigger>) {
-  return <BaseMenu.SubmenuTrigger {...props} />;
+  return <BaseMenu.SubmenuTrigger data-ciamix="option" {...props} />;
 }
 
 function MenuInput(props: ComponentPropsWithRef<typeof BaseMenu.Input>) {
-  return <BaseMenu.Input {...props} />;
+  return <BaseMenu.Input data-ciamix="input" {...props} />;
 }
 
 function MenuList(props: ComponentPropsWithRef<typeof BaseMenu.List>) {
-  return <BaseMenu.List {...props} />;
+  return <BaseMenu.List data-ciamix="option-list" {...props} />;
 }
 
 function MenuClear(props: ComponentPropsWithRef<typeof BaseMenu.Clear>) {
-  return <BaseMenu.Clear {...props} />;
+  return <BaseMenu.Clear data-ciamix="inline-button" {...props} />;
 }
 
 function MenuEmpty(props: ComponentPropsWithRef<typeof BaseMenu.Empty>) {
-  return <BaseMenu.Empty {...props} />;
+  return <BaseMenu.Empty data-ciamix="empty" {...props} />;
+}
+
+function MenuTrigger<Payload>(props: BaseMenu.Trigger.Props<Payload> & RefAttributes<HTMLElement>) {
+  return <BaseMenu.Trigger data-ciamix="control" {...props} />;
 }
 
 /**
- * Ciamix Menu: unstyled wrapper around Base UI's Menu.
+ * Ciamix Menu: wrapper around Base UI's Menu.
  * Docs: https://base-ui.com/react/components/menu
  */
 export const Menu = {
@@ -109,7 +110,7 @@ export const Menu = {
   RadioItemIndicator: MenuRadioItemIndicator,
   Root: BaseMenu.Root,
   SubmenuRoot: BaseMenu.SubmenuRoot,
-  Trigger: BaseMenu.Trigger,
+  Trigger: MenuTrigger,
   Viewport: MenuViewport,
   Separator: MenuSeparator,
   SubmenuTrigger: MenuSubmenuTrigger,

@@ -1,23 +1,20 @@
 import { Dialog as BaseDialog } from '@base-ui/react/dialog';
-import type { ComponentPropsWithRef } from 'react';
-
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
+import type { ComponentPropsWithRef, RefAttributes } from 'react';
 
 function DialogBackdrop(props: ComponentPropsWithRef<typeof BaseDialog.Backdrop>) {
-  return <BaseDialog.Backdrop {...props} />;
+  return <BaseDialog.Backdrop data-ciamix="modal-backdrop" {...props} />;
 }
 
 function DialogClose(props: ComponentPropsWithRef<typeof BaseDialog.Close>) {
-  return <BaseDialog.Close {...props} />;
+  return <BaseDialog.Close data-ciamix="control" {...props} />;
 }
 
 function DialogDescription(props: ComponentPropsWithRef<typeof BaseDialog.Description>) {
-  return <BaseDialog.Description {...props} />;
+  return <BaseDialog.Description data-ciamix="description" {...props} />;
 }
 
 function DialogPopup(props: ComponentPropsWithRef<typeof BaseDialog.Popup>) {
-  return <BaseDialog.Popup {...props} />;
+  return <BaseDialog.Popup data-ciamix="dialog-popup" {...props} />;
 }
 
 function DialogPortal(props: ComponentPropsWithRef<typeof BaseDialog.Portal>) {
@@ -25,15 +22,19 @@ function DialogPortal(props: ComponentPropsWithRef<typeof BaseDialog.Portal>) {
 }
 
 function DialogViewport(props: ComponentPropsWithRef<typeof BaseDialog.Viewport>) {
-  return <BaseDialog.Viewport {...props} />;
+  return <BaseDialog.Viewport data-ciamix="dialog-viewport" {...props} />;
 }
 
 function DialogTitle(props: ComponentPropsWithRef<typeof BaseDialog.Title>) {
-  return <BaseDialog.Title {...props} />;
+  return <BaseDialog.Title data-ciamix="title" {...props} />;
+}
+
+function DialogTrigger<Payload>(props: BaseDialog.Trigger.Props<Payload> & RefAttributes<HTMLElement>) {
+  return <BaseDialog.Trigger data-ciamix="control" {...props} />;
 }
 
 /**
- * Ciamix Dialog: unstyled wrapper around Base UI's Dialog.
+ * Ciamix Dialog: wrapper around Base UI's Dialog.
  * Docs: https://base-ui.com/react/components/dialog
  */
 export const Dialog = {
@@ -45,7 +46,7 @@ export const Dialog = {
   Root: BaseDialog.Root,
   Viewport: DialogViewport,
   Title: DialogTitle,
-  Trigger: BaseDialog.Trigger,
+  Trigger: DialogTrigger,
   createHandle: BaseDialog.createHandle,
   Handle: BaseDialog.Handle,
 } satisfies Record<keyof typeof BaseDialog, unknown>;

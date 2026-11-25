@@ -1,23 +1,20 @@
 import { Avatar as BaseAvatar } from '@base-ui/react/avatar';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function AvatarRoot(props: ComponentPropsWithRef<typeof BaseAvatar.Root>) {
-  return <BaseAvatar.Root {...props} />;
+  return <BaseAvatar.Root data-ciamix="avatar" {...props} />;
 }
 
 function AvatarImage(props: ComponentPropsWithRef<typeof BaseAvatar.Image>) {
-  return <BaseAvatar.Image {...props} />;
+  return <BaseAvatar.Image data-ciamix="avatar-image" {...props} />;
 }
 
 function AvatarFallback(props: ComponentPropsWithRef<typeof BaseAvatar.Fallback>) {
-  return <BaseAvatar.Fallback {...props} />;
+  return <BaseAvatar.Fallback data-ciamix="avatar-fallback" {...props} />;
 }
 
 /**
- * Ciamix Avatar: unstyled wrapper around Base UI's Avatar.
+ * Ciamix Avatar: wrapper around Base UI's Avatar.
  * Docs: https://base-ui.com/react/components/avatar
  */
 export const Avatar = {

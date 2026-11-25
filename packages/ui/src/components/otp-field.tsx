@@ -1,23 +1,20 @@
 import { OTPField as BaseOTPField } from '@base-ui/react/otp-field';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function OTPFieldRoot(props: ComponentPropsWithRef<typeof BaseOTPField.Root>) {
-  return <BaseOTPField.Root {...props} />;
+  return <BaseOTPField.Root data-ciamix="otp" {...props} />;
 }
 
 function OTPFieldInput(props: ComponentPropsWithRef<typeof BaseOTPField.Input>) {
-  return <BaseOTPField.Input {...props} />;
+  return <BaseOTPField.Input data-ciamix="otp-input" {...props} />;
 }
 
 function OTPFieldSeparator(props: ComponentPropsWithRef<typeof BaseOTPField.Separator>) {
-  return <BaseOTPField.Separator {...props} />;
+  return <BaseOTPField.Separator data-ciamix="otp-separator" {...props} />;
 }
 
 /**
- * Ciamix OTPField: unstyled wrapper around Base UI's OTPField.
+ * Ciamix OTPField: wrapper around Base UI's OTPField.
  * Docs: https://base-ui.com/react/components/otp-field
  */
 export const OTPField = {

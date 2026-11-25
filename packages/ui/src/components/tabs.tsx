@@ -1,31 +1,28 @@
 import { Tabs as BaseTabs } from '@base-ui/react/tabs';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function TabsRoot(props: ComponentPropsWithRef<typeof BaseTabs.Root>) {
-  return <BaseTabs.Root {...props} />;
+  return <BaseTabs.Root data-ciamix="tabs" {...props} />;
 }
 
 function TabsTab(props: ComponentPropsWithRef<typeof BaseTabs.Tab>) {
-  return <BaseTabs.Tab {...props} />;
+  return <BaseTabs.Tab data-ciamix="tab" {...props} />;
 }
 
 function TabsIndicator(props: ComponentPropsWithRef<typeof BaseTabs.Indicator>) {
-  return <BaseTabs.Indicator {...props} />;
+  return <BaseTabs.Indicator data-ciamix="tab-indicator" {...props} />;
 }
 
 function TabsPanel(props: ComponentPropsWithRef<typeof BaseTabs.Panel>) {
-  return <BaseTabs.Panel {...props} />;
+  return <BaseTabs.Panel data-ciamix="tab-panel" {...props} />;
 }
 
 function TabsList(props: ComponentPropsWithRef<typeof BaseTabs.List>) {
-  return <BaseTabs.List {...props} />;
+  return <BaseTabs.List data-ciamix="tabs-list" {...props} />;
 }
 
 /**
- * Ciamix Tabs: unstyled wrapper around Base UI's Tabs.
+ * Ciamix Tabs: wrapper around Base UI's Tabs.
  * Docs: https://base-ui.com/react/components/tabs
  */
 export const Tabs = {

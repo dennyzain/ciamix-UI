@@ -1,6 +1,6 @@
 /*
  * Global setup required by Base UI (https://base-ui.com/react/overview/quick-start).
- * No visual styling lives here. Add design tokens and component styles once the design is decided.
+ * Visual defaults are opt-in through @ciamix/ui/styles.css.
  */
 
 /* Popups (dialogs, menus, tooltips) portal to <body>. A stacking context on the app root keeps them above page content.

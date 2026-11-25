@@ -1,6 +1,6 @@
 # Ciamix UI
 
-Ciamix's component library, built on [Base UI](https://base-ui.com): unstyled, accessible React components that we style ourselves.
+Ciamix's React component library uses [Base UI](https://base-ui.com) for behavior and an optional theme inspired by [Assetora](https://github.com/kargulstudio/assetora).
 
 > **Web only.** Base UI renders DOM elements through `react-dom`, so it does not run in React Native (iOS/Android). Mobile would need its own native component layer.
 
@@ -10,6 +10,8 @@ Ciamix's component library, built on [Base UI](https://base-ui.com): unstyled, a
 packages/ui/                 @ciamix/ui: the components (Base UI wrappers)
   src/components/<name>.tsx  One file per Base UI component (all 38 of them)
   src/global.css             Global setup Base UI needs (no visual styles)
+  src/styles.css             Optional styles for the full component catalog
+  src/styles/               Theme tokens and shared style rules
   src/index.ts               Public exports
 apps/playground/             Vite app that previews every component
   src/demos/                 Examples covering every component, grouped by kind
@@ -29,26 +31,31 @@ pnpm build       # production build of the playground
 
 ## How the components are wrapped
 
-Every component keeps Base UI's API, so the [Base UI docs](https://base-ui.com/react/overview/quick-start) apply as-is.
+Components use [Base UI's composition and behavior](https://base-ui.com/react/overview/quick-start).
 
 - **Single components** (`Button`, `Input`, `Separator`, …) are a wrapper function, like `button.tsx`.
 - **Compound components** (`Dialog`, `Select`, `Menu`, …) export an object of parts (`Dialog.Root`, `Dialog.Popup`, …).
-  Each part that renders an element has its own wrapper function in the file, ready for styles.
-- **Some parts are passed through from Base UI unchanged**: parts that render no element of their own
-  (`Dialog.Root`, `Toast.Provider`), parts that are generic over their value type (`Select.Root`, `Radio.Root`,
-  `Toggle`, `Form`, triggers with a `Payload`), and hooks or handles (`Toast.useToastManager`, `Dialog.createHandle`).
-  Wrapping those would lose their typing, so style them with `className` where they are used.
-- Each file ends with `satisfies Record<keyof typeof Base…, unknown>`, so typecheck fails if a Base UI upgrade adds a part we don't export.
+  Rendered parts use `data-ciamix` to share styles across components.
+- Providers, hooks, handles, and parts such as `Dialog.Root` and `Select.Root` are passed through from Base UI.
+- Compound exports check their part names against Base UI during type checking.
 
 For a part's prop types, use `ComponentProps<typeof Dialog.Popup>`. For state and event-detail types,
 import them from Base UI directly, for example `import type { Dialog } from '@base-ui/react/dialog'` then `Dialog.Popup.State`.
 
-## Adding styles
+## Using the theme
 
-The library is unstyled. The playground uses a few local styles to make controls visible and interactive.
-Once the design is decided, style the library in `packages/ui/src/components/*`.
-Base UI exposes state through `data-*` attributes (`data-disabled`, `data-open`, `data-invalid`, …)
-and accepts `className` as a string or as a function of component state.
+```tsx
+import '@ciamix/ui/global.css'
+import '@ciamix/ui/styles.css'
+import { Button } from '@ciamix/ui'
+
+<Button variant="default">Save changes</Button>
+```
+
+The default button uses the neutral `control` variant. The `default` variant is blue.
+Set `data-ciamix-theme="dark"` on the document root so menus and dialogs inherit the theme through their portals.
+Use the `--ci-*` CSS custom properties to change colors, radii, and shadows.
+Your own CSS can target the component's `className` and Base UI's state attributes such as `data-open` and `data-invalid`.
 
 ## Adding a component
 

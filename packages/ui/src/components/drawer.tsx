@@ -1,23 +1,20 @@
 import { Drawer as BaseDrawer } from '@base-ui/react/drawer';
-import type { ComponentPropsWithRef } from 'react';
-
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
+import type { ComponentPropsWithRef, RefAttributes } from 'react';
 
 function DrawerBackdrop(props: ComponentPropsWithRef<typeof BaseDrawer.Backdrop>) {
-  return <BaseDrawer.Backdrop {...props} />;
+  return <BaseDrawer.Backdrop data-ciamix="modal-backdrop" {...props} />;
 }
 
 function DrawerClose(props: ComponentPropsWithRef<typeof BaseDrawer.Close>) {
-  return <BaseDrawer.Close {...props} />;
+  return <BaseDrawer.Close data-ciamix="control" {...props} />;
 }
 
 function DrawerContent(props: ComponentPropsWithRef<typeof BaseDrawer.Content>) {
-  return <BaseDrawer.Content {...props} />;
+  return <BaseDrawer.Content data-ciamix="drawer-content" {...props} />;
 }
 
 function DrawerDescription(props: ComponentPropsWithRef<typeof BaseDrawer.Description>) {
-  return <BaseDrawer.Description {...props} />;
+  return <BaseDrawer.Description data-ciamix="description" {...props} />;
 }
 
 function DrawerIndent(props: ComponentPropsWithRef<typeof BaseDrawer.Indent>) {
@@ -29,7 +26,7 @@ function DrawerIndentBackground(props: ComponentPropsWithRef<typeof BaseDrawer.I
 }
 
 function DrawerPopup(props: ComponentPropsWithRef<typeof BaseDrawer.Popup>) {
-  return <BaseDrawer.Popup {...props} />;
+  return <BaseDrawer.Popup data-ciamix="drawer-popup" {...props} />;
 }
 
 function DrawerPortal(props: ComponentPropsWithRef<typeof BaseDrawer.Portal>) {
@@ -41,15 +38,19 @@ function DrawerSwipeArea(props: ComponentPropsWithRef<typeof BaseDrawer.SwipeAre
 }
 
 function DrawerTitle(props: ComponentPropsWithRef<typeof BaseDrawer.Title>) {
-  return <BaseDrawer.Title {...props} />;
+  return <BaseDrawer.Title data-ciamix="title" {...props} />;
 }
 
 function DrawerViewport(props: ComponentPropsWithRef<typeof BaseDrawer.Viewport>) {
-  return <BaseDrawer.Viewport {...props} />;
+  return <BaseDrawer.Viewport data-ciamix="drawer-viewport" {...props} />;
+}
+
+function DrawerTrigger<Payload>(props: BaseDrawer.Trigger.Props<Payload> & RefAttributes<HTMLElement>) {
+  return <BaseDrawer.Trigger data-ciamix="control" {...props} />;
 }
 
 /**
- * Ciamix Drawer: unstyled wrapper around Base UI's Drawer.
+ * Ciamix Drawer: wrapper around Base UI's Drawer.
  * Docs: https://base-ui.com/react/components/drawer
  */
 export const Drawer = {
@@ -65,7 +66,7 @@ export const Drawer = {
   Root: BaseDrawer.Root,
   SwipeArea: DrawerSwipeArea,
   Title: DrawerTitle,
-  Trigger: BaseDrawer.Trigger,
+  Trigger: DrawerTrigger,
   Viewport: DrawerViewport,
   VirtualKeyboardProvider: BaseDrawer.VirtualKeyboardProvider,
   createHandle: BaseDrawer.createHandle,

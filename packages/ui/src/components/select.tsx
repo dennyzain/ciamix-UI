@@ -1,23 +1,20 @@
 import { Select as BaseSelect } from '@base-ui/react/select';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function SelectLabel(props: ComponentPropsWithRef<typeof BaseSelect.Label>) {
-  return <BaseSelect.Label {...props} />;
+  return <BaseSelect.Label data-ciamix="label" {...props} />;
 }
 
 function SelectTrigger(props: ComponentPropsWithRef<typeof BaseSelect.Trigger>) {
-  return <BaseSelect.Trigger {...props} />;
+  return <BaseSelect.Trigger data-ciamix="select-trigger" {...props} />;
 }
 
 function SelectValue(props: ComponentPropsWithRef<typeof BaseSelect.Value>) {
-  return <BaseSelect.Value {...props} />;
+  return <BaseSelect.Value data-ciamix="select-value" {...props} />;
 }
 
 function SelectIcon(props: ComponentPropsWithRef<typeof BaseSelect.Icon>) {
-  return <BaseSelect.Icon {...props} />;
+  return <BaseSelect.Icon data-ciamix="icon" {...props} />;
 }
 
 function SelectPortal(props: ComponentPropsWithRef<typeof BaseSelect.Portal>) {
@@ -25,27 +22,27 @@ function SelectPortal(props: ComponentPropsWithRef<typeof BaseSelect.Portal>) {
 }
 
 function SelectBackdrop(props: ComponentPropsWithRef<typeof BaseSelect.Backdrop>) {
-  return <BaseSelect.Backdrop {...props} />;
+  return <BaseSelect.Backdrop data-ciamix="modal-backdrop" {...props} />;
 }
 
 function SelectPositioner(props: ComponentPropsWithRef<typeof BaseSelect.Positioner>) {
-  return <BaseSelect.Positioner {...props} />;
+  return <BaseSelect.Positioner data-ciamix="positioner" {...props} />;
 }
 
 function SelectPopup(props: ComponentPropsWithRef<typeof BaseSelect.Popup>) {
-  return <BaseSelect.Popup {...props} />;
+  return <BaseSelect.Popup data-ciamix="menu-popup" {...props} />;
 }
 
 function SelectList(props: ComponentPropsWithRef<typeof BaseSelect.List>) {
-  return <BaseSelect.List {...props} />;
+  return <BaseSelect.List data-ciamix="option-list" {...props} />;
 }
 
 function SelectItem(props: ComponentPropsWithRef<typeof BaseSelect.Item>) {
-  return <BaseSelect.Item {...props} />;
+  return <BaseSelect.Item data-ciamix="option" {...props} />;
 }
 
 function SelectItemIndicator(props: ComponentPropsWithRef<typeof BaseSelect.ItemIndicator>) {
-  return <BaseSelect.ItemIndicator {...props} />;
+  return <BaseSelect.ItemIndicator data-ciamix="option-indicator" {...props} />;
 }
 
 function SelectItemText(props: ComponentPropsWithRef<typeof BaseSelect.ItemText>) {
@@ -53,15 +50,15 @@ function SelectItemText(props: ComponentPropsWithRef<typeof BaseSelect.ItemText>
 }
 
 function SelectArrow(props: ComponentPropsWithRef<typeof BaseSelect.Arrow>) {
-  return <BaseSelect.Arrow {...props} />;
+  return <BaseSelect.Arrow data-ciamix="popup-arrow" {...props} />;
 }
 
 function SelectScrollDownArrow(props: ComponentPropsWithRef<typeof BaseSelect.ScrollDownArrow>) {
-  return <BaseSelect.ScrollDownArrow {...props} />;
+  return <BaseSelect.ScrollDownArrow data-ciamix="select-scroll" {...props} />;
 }
 
 function SelectScrollUpArrow(props: ComponentPropsWithRef<typeof BaseSelect.ScrollUpArrow>) {
-  return <BaseSelect.ScrollUpArrow {...props} />;
+  return <BaseSelect.ScrollUpArrow data-ciamix="select-scroll" {...props} />;
 }
 
 function SelectGroup(props: ComponentPropsWithRef<typeof BaseSelect.Group>) {
@@ -69,15 +66,15 @@ function SelectGroup(props: ComponentPropsWithRef<typeof BaseSelect.Group>) {
 }
 
 function SelectGroupLabel(props: ComponentPropsWithRef<typeof BaseSelect.GroupLabel>) {
-  return <BaseSelect.GroupLabel {...props} />;
+  return <BaseSelect.GroupLabel data-ciamix="group-label" {...props} />;
 }
 
 function SelectSeparator(props: ComponentPropsWithRef<typeof BaseSelect.Separator>) {
-  return <BaseSelect.Separator {...props} />;
+  return <BaseSelect.Separator data-ciamix="separator" {...props} />;
 }
 
 /**
- * Ciamix Select: unstyled wrapper around Base UI's Select.
+ * Ciamix Select: wrapper around Base UI's Select.
  * Docs: https://base-ui.com/react/components/select
  */
 export const Select = {

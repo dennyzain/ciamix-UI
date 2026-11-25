@@ -1,19 +1,16 @@
 import { ScrollArea as BaseScrollArea } from '@base-ui/react/scroll-area';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function ScrollAreaRoot(props: ComponentPropsWithRef<typeof BaseScrollArea.Root>) {
-  return <BaseScrollArea.Root {...props} />;
+  return <BaseScrollArea.Root data-ciamix="scroll-area" {...props} />;
 }
 
 function ScrollAreaViewport(props: ComponentPropsWithRef<typeof BaseScrollArea.Viewport>) {
-  return <BaseScrollArea.Viewport {...props} />;
+  return <BaseScrollArea.Viewport data-ciamix="scroll-viewport" {...props} />;
 }
 
 function ScrollAreaScrollbar(props: ComponentPropsWithRef<typeof BaseScrollArea.Scrollbar>) {
-  return <BaseScrollArea.Scrollbar {...props} />;
+  return <BaseScrollArea.Scrollbar data-ciamix="scrollbar" {...props} />;
 }
 
 function ScrollAreaContent(props: ComponentPropsWithRef<typeof BaseScrollArea.Content>) {
@@ -21,15 +18,15 @@ function ScrollAreaContent(props: ComponentPropsWithRef<typeof BaseScrollArea.Co
 }
 
 function ScrollAreaThumb(props: ComponentPropsWithRef<typeof BaseScrollArea.Thumb>) {
-  return <BaseScrollArea.Thumb {...props} />;
+  return <BaseScrollArea.Thumb data-ciamix="scroll-thumb" {...props} />;
 }
 
 function ScrollAreaCorner(props: ComponentPropsWithRef<typeof BaseScrollArea.Corner>) {
-  return <BaseScrollArea.Corner {...props} />;
+  return <BaseScrollArea.Corner data-ciamix="scroll-corner" {...props} />;
 }
 
 /**
- * Ciamix ScrollArea: unstyled wrapper around Base UI's ScrollArea.
+ * Ciamix ScrollArea: wrapper around Base UI's ScrollArea.
  * Docs: https://base-ui.com/react/components/scroll-area
  */
 export const ScrollArea = {

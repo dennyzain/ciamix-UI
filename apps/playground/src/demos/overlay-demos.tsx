@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import {
   AlertDialog,
+  Button,
   ContextMenu,
   Dialog,
   Drawer,
@@ -18,7 +19,7 @@ function ToastButton() {
   const toastManager = Toast.useToastManager()
   const count = useRef(0)
   return (
-    <button
+    <Button
       type="button"
       onClick={() => {
         count.current += 1
@@ -26,7 +27,7 @@ function ToastButton() {
       }}
     >
       Create toast
-    </button>
+    </Button>
   )
 }
 
@@ -61,9 +62,9 @@ export const overlayDemos: Demo[] = [
       <Dialog.Root>
         <Dialog.Trigger>Open dialog</Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Backdrop className="demo-modal-backdrop" />
-          <Dialog.Viewport className="demo-modal-viewport">
-            <Dialog.Popup className="demo-modal-popup">
+          <Dialog.Backdrop />
+          <Dialog.Viewport>
+            <Dialog.Popup>
               <Dialog.Title>Notifications</Dialog.Title>
               <Dialog.Description>You are all caught up.</Dialog.Description>
               <Dialog.Close>Close</Dialog.Close>
@@ -79,9 +80,9 @@ export const overlayDemos: Demo[] = [
       <AlertDialog.Root>
         <AlertDialog.Trigger>Discard draft</AlertDialog.Trigger>
         <AlertDialog.Portal>
-          <AlertDialog.Backdrop className="demo-modal-backdrop" />
-          <AlertDialog.Viewport className="demo-modal-viewport">
-            <AlertDialog.Popup className="demo-modal-popup">
+          <AlertDialog.Backdrop />
+          <AlertDialog.Viewport>
+            <AlertDialog.Popup>
               <AlertDialog.Title>Discard draft?</AlertDialog.Title>
               <AlertDialog.Description>You can't undo this action.</AlertDialog.Description>
               <AlertDialog.Close>Cancel</AlertDialog.Close>
@@ -98,9 +99,9 @@ export const overlayDemos: Demo[] = [
       <Drawer.Root swipeDirection="right">
         <Drawer.Trigger>Open drawer</Drawer.Trigger>
         <Drawer.Portal>
-          <Drawer.Backdrop className="demo-modal-backdrop" />
-          <Drawer.Viewport className="demo-modal-viewport demo-drawer-viewport">
-            <Drawer.Popup className="demo-modal-popup">
+          <Drawer.Backdrop />
+          <Drawer.Viewport>
+            <Drawer.Popup>
               <Drawer.Content>
                 <Drawer.Title>Drawer</Drawer.Title>
                 <Drawer.Description>Swipe right or use Close to dismiss.</Drawer.Description>
@@ -183,7 +184,7 @@ export const overlayDemos: Demo[] = [
     name: 'Context Menu',
     render: () => (
       <ContextMenu.Root>
-        <ContextMenu.Trigger style={{ border: '1px dashed', padding: 24 }}>Right-click here</ContextMenu.Trigger>
+        <ContextMenu.Trigger>Right-click here</ContextMenu.Trigger>
         <ContextMenu.Portal>
           <ContextMenu.Positioner>
             <ContextMenu.Popup>

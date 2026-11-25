@@ -1,15 +1,12 @@
 import { ContextMenu as BaseContextMenu } from '@base-ui/react/context-menu';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function ContextMenuTrigger(props: ComponentPropsWithRef<typeof BaseContextMenu.Trigger>) {
-  return <BaseContextMenu.Trigger {...props} />;
+  return <BaseContextMenu.Trigger data-ciamix="context-target" {...props} />;
 }
 
 function ContextMenuBackdrop(props: ComponentPropsWithRef<typeof BaseContextMenu.Backdrop>) {
-  return <BaseContextMenu.Backdrop {...props} />;
+  return <BaseContextMenu.Backdrop data-ciamix="modal-backdrop" {...props} />;
 }
 
 function ContextMenuPortal(props: ComponentPropsWithRef<typeof BaseContextMenu.Portal>) {
@@ -17,15 +14,15 @@ function ContextMenuPortal(props: ComponentPropsWithRef<typeof BaseContextMenu.P
 }
 
 function ContextMenuPositioner(props: ComponentPropsWithRef<typeof BaseContextMenu.Positioner>) {
-  return <BaseContextMenu.Positioner {...props} />;
+  return <BaseContextMenu.Positioner data-ciamix="positioner" {...props} />;
 }
 
 function ContextMenuPopup(props: ComponentPropsWithRef<typeof BaseContextMenu.Popup>) {
-  return <BaseContextMenu.Popup {...props} />;
+  return <BaseContextMenu.Popup data-ciamix="menu-popup" {...props} />;
 }
 
 function ContextMenuArrow(props: ComponentPropsWithRef<typeof BaseContextMenu.Arrow>) {
-  return <BaseContextMenu.Arrow {...props} />;
+  return <BaseContextMenu.Arrow data-ciamix="popup-arrow" {...props} />;
 }
 
 function ContextMenuGroup(props: ComponentPropsWithRef<typeof BaseContextMenu.Group>) {
@@ -33,23 +30,23 @@ function ContextMenuGroup(props: ComponentPropsWithRef<typeof BaseContextMenu.Gr
 }
 
 function ContextMenuGroupLabel(props: ComponentPropsWithRef<typeof BaseContextMenu.GroupLabel>) {
-  return <BaseContextMenu.GroupLabel {...props} />;
+  return <BaseContextMenu.GroupLabel data-ciamix="group-label" {...props} />;
 }
 
 function ContextMenuItem(props: ComponentPropsWithRef<typeof BaseContextMenu.Item>) {
-  return <BaseContextMenu.Item {...props} />;
+  return <BaseContextMenu.Item data-ciamix="option" {...props} />;
 }
 
 function ContextMenuCheckboxItem(props: ComponentPropsWithRef<typeof BaseContextMenu.CheckboxItem>) {
-  return <BaseContextMenu.CheckboxItem {...props} />;
+  return <BaseContextMenu.CheckboxItem data-ciamix="option" {...props} />;
 }
 
 function ContextMenuCheckboxItemIndicator(props: ComponentPropsWithRef<typeof BaseContextMenu.CheckboxItemIndicator>) {
-  return <BaseContextMenu.CheckboxItemIndicator {...props} />;
+  return <BaseContextMenu.CheckboxItemIndicator data-ciamix="option-indicator" {...props} />;
 }
 
 function ContextMenuLinkItem(props: ComponentPropsWithRef<typeof BaseContextMenu.LinkItem>) {
-  return <BaseContextMenu.LinkItem {...props} />;
+  return <BaseContextMenu.LinkItem data-ciamix="option" {...props} />;
 }
 
 function ContextMenuRadioGroup(props: ComponentPropsWithRef<typeof BaseContextMenu.RadioGroup>) {
@@ -57,23 +54,23 @@ function ContextMenuRadioGroup(props: ComponentPropsWithRef<typeof BaseContextMe
 }
 
 function ContextMenuRadioItem(props: ComponentPropsWithRef<typeof BaseContextMenu.RadioItem>) {
-  return <BaseContextMenu.RadioItem {...props} />;
+  return <BaseContextMenu.RadioItem data-ciamix="option" {...props} />;
 }
 
 function ContextMenuRadioItemIndicator(props: ComponentPropsWithRef<typeof BaseContextMenu.RadioItemIndicator>) {
-  return <BaseContextMenu.RadioItemIndicator {...props} />;
+  return <BaseContextMenu.RadioItemIndicator data-ciamix="option-indicator" {...props} />;
 }
 
 function ContextMenuSubmenuTrigger(props: ComponentPropsWithRef<typeof BaseContextMenu.SubmenuTrigger>) {
-  return <BaseContextMenu.SubmenuTrigger {...props} />;
+  return <BaseContextMenu.SubmenuTrigger data-ciamix="option" {...props} />;
 }
 
 function ContextMenuSeparator(props: ComponentPropsWithRef<typeof BaseContextMenu.Separator>) {
-  return <BaseContextMenu.Separator {...props} />;
+  return <BaseContextMenu.Separator data-ciamix="separator" {...props} />;
 }
 
 /**
- * Ciamix ContextMenu: unstyled wrapper around Base UI's ContextMenu.
+ * Ciamix ContextMenu: wrapper around Base UI's ContextMenu.
  * Docs: https://base-ui.com/react/components/context-menu
  */
 export const ContextMenu = {

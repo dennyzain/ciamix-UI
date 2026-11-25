@@ -1,35 +1,32 @@
 import { Autocomplete as BaseAutocomplete } from '@base-ui/react/autocomplete';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function AutocompleteTrigger(props: ComponentPropsWithRef<typeof BaseAutocomplete.Trigger>) {
   return <BaseAutocomplete.Trigger {...props} />;
 }
 
 function AutocompleteInput(props: ComponentPropsWithRef<typeof BaseAutocomplete.Input>) {
-  return <BaseAutocomplete.Input {...props} />;
+  return <BaseAutocomplete.Input data-ciamix="input" {...props} />;
 }
 
 function AutocompleteInputGroup(props: ComponentPropsWithRef<typeof BaseAutocomplete.InputGroup>) {
-  return <BaseAutocomplete.InputGroup {...props} />;
+  return <BaseAutocomplete.InputGroup data-ciamix="input-group" {...props} />;
 }
 
 function AutocompleteIcon(props: ComponentPropsWithRef<typeof BaseAutocomplete.Icon>) {
-  return <BaseAutocomplete.Icon {...props} />;
+  return <BaseAutocomplete.Icon data-ciamix="icon" {...props} />;
 }
 
 function AutocompleteClear(props: ComponentPropsWithRef<typeof BaseAutocomplete.Clear>) {
-  return <BaseAutocomplete.Clear {...props} />;
+  return <BaseAutocomplete.Clear data-ciamix="inline-button" {...props} />;
 }
 
 function AutocompleteList(props: ComponentPropsWithRef<typeof BaseAutocomplete.List>) {
-  return <BaseAutocomplete.List {...props} />;
+  return <BaseAutocomplete.List data-ciamix="option-list" {...props} />;
 }
 
 function AutocompleteStatus(props: ComponentPropsWithRef<typeof BaseAutocomplete.Status>) {
-  return <BaseAutocomplete.Status {...props} />;
+  return <BaseAutocomplete.Status data-ciamix="description" {...props} />;
 }
 
 function AutocompletePortal(props: ComponentPropsWithRef<typeof BaseAutocomplete.Portal>) {
@@ -37,19 +34,19 @@ function AutocompletePortal(props: ComponentPropsWithRef<typeof BaseAutocomplete
 }
 
 function AutocompleteBackdrop(props: ComponentPropsWithRef<typeof BaseAutocomplete.Backdrop>) {
-  return <BaseAutocomplete.Backdrop {...props} />;
+  return <BaseAutocomplete.Backdrop data-ciamix="modal-backdrop" {...props} />;
 }
 
 function AutocompletePositioner(props: ComponentPropsWithRef<typeof BaseAutocomplete.Positioner>) {
-  return <BaseAutocomplete.Positioner {...props} />;
+  return <BaseAutocomplete.Positioner data-ciamix="positioner" {...props} />;
 }
 
 function AutocompletePopup(props: ComponentPropsWithRef<typeof BaseAutocomplete.Popup>) {
-  return <BaseAutocomplete.Popup {...props} />;
+  return <BaseAutocomplete.Popup data-ciamix="menu-popup" {...props} />;
 }
 
 function AutocompleteArrow(props: ComponentPropsWithRef<typeof BaseAutocomplete.Arrow>) {
-  return <BaseAutocomplete.Arrow {...props} />;
+  return <BaseAutocomplete.Arrow data-ciamix="popup-arrow" {...props} />;
 }
 
 function AutocompleteGroup(props: ComponentPropsWithRef<typeof BaseAutocomplete.Group>) {
@@ -57,11 +54,11 @@ function AutocompleteGroup(props: ComponentPropsWithRef<typeof BaseAutocomplete.
 }
 
 function AutocompleteGroupLabel(props: ComponentPropsWithRef<typeof BaseAutocomplete.GroupLabel>) {
-  return <BaseAutocomplete.GroupLabel {...props} />;
+  return <BaseAutocomplete.GroupLabel data-ciamix="group-label" {...props} />;
 }
 
 function AutocompleteItem(props: ComponentPropsWithRef<typeof BaseAutocomplete.Item>) {
-  return <BaseAutocomplete.Item {...props} />;
+  return <BaseAutocomplete.Item data-ciamix="option" {...props} />;
 }
 
 function AutocompleteRow(props: ComponentPropsWithRef<typeof BaseAutocomplete.Row>) {
@@ -69,15 +66,15 @@ function AutocompleteRow(props: ComponentPropsWithRef<typeof BaseAutocomplete.Ro
 }
 
 function AutocompleteEmpty(props: ComponentPropsWithRef<typeof BaseAutocomplete.Empty>) {
-  return <BaseAutocomplete.Empty {...props} />;
+  return <BaseAutocomplete.Empty data-ciamix="empty" {...props} />;
 }
 
 function AutocompleteSeparator(props: ComponentPropsWithRef<typeof BaseAutocomplete.Separator>) {
-  return <BaseAutocomplete.Separator {...props} />;
+  return <BaseAutocomplete.Separator data-ciamix="separator" {...props} />;
 }
 
 /**
- * Ciamix Autocomplete: unstyled wrapper around Base UI's Autocomplete.
+ * Ciamix Autocomplete: wrapper around Base UI's Autocomplete.
  * Docs: https://base-ui.com/react/components/autocomplete
  */
 export const Autocomplete = {

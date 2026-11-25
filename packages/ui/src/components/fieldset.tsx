@@ -1,19 +1,16 @@
 import { Fieldset as BaseFieldset } from '@base-ui/react/fieldset';
 import type { ComponentPropsWithRef } from 'react';
 
-// Add styles to the wrapped parts below once the design is decided.
-// Parts passed through as-is render no element of their own (or are generic, hooks or handles).
-
 function FieldsetRoot(props: ComponentPropsWithRef<typeof BaseFieldset.Root>) {
-  return <BaseFieldset.Root {...props} />;
+  return <BaseFieldset.Root data-ciamix="fieldset" {...props} />;
 }
 
 function FieldsetLegend(props: ComponentPropsWithRef<typeof BaseFieldset.Legend>) {
-  return <BaseFieldset.Legend {...props} />;
+  return <BaseFieldset.Legend data-ciamix="legend" {...props} />;
 }
 
 /**
- * Ciamix Fieldset: unstyled wrapper around Base UI's Fieldset.
+ * Ciamix Fieldset: wrapper around Base UI's Fieldset.
  * Docs: https://base-ui.com/react/components/fieldset
  */
 export const Fieldset = {
