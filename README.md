@@ -13,11 +13,14 @@ packages/ui/                 @ciamix/ui: the components (Base UI wrappers)
   src/styles.css             Optional styles for the full component catalog
   src/styles/               Theme tokens and shared style rules
   src/index.ts               Public exports
-apps/playground/             Vite app that previews every component
+apps/playground/             Vite app with a landing page and component playground
+  src/landing/               Homepage and featured component previews
   src/demos/                 Examples covering every component, grouped by kind
+  src/docs/                  Getting started and component usage examples
 ```
 
-The playground imports `@ciamix/ui` source directly, so there is no build step for the library.
+The site opens at `/`, and the full playground is at `/components/`. Both use `@ciamix/ui` directly from the workspace.
+Open **Getting started** for setup and theme instructions or **Usage** on a component card for its JSX example and Base UI API link.
 
 ## Commands
 
@@ -61,4 +64,4 @@ Your own CSS can target the component's `className` and Base UI's state attribut
 
 1. Import it from `@base-ui/react/<component>`.
 2. Wrap it in `packages/ui/src/components/<component>.tsx`, following an existing file of the same kind.
-3. Export it from `src/index.ts` and add a preview in `apps/playground/src/demos/`.
+3. Export it from `src/index.ts` and add a preview and usage example in `apps/playground/src/`.

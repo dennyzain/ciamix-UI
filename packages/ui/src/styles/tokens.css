@@ -28,6 +28,12 @@
     --ci-radius-panel: 16px;
     --ci-font: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
     --ci-font-heading: 'Lora Variable', Georgia, serif;
+    --ci-size-xs: .75rem;
+    --ci-size-sm: .8125rem;
+    --ci-size-base: .875rem;
+    --ci-size-md: 1rem;
+    --ci-size-section: 1.0625rem;
+    --ci-size-page: clamp(2.25rem, 4.2vw, 3.625rem);
     --ci-weight-regular: 500;
     --ci-weight-emphasis: 600;
     --ci-weight-heading: 500;
@@ -62,6 +68,7 @@
   [data-ciamix] {
     box-sizing: border-box;
     font-family: var(--ci-font);
+    font-size: var(--ci-size-base);
     font-weight: var(--ci-weight-regular);
   }
 

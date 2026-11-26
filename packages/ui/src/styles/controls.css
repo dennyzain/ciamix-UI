@@ -13,7 +13,7 @@
     background: var(--ci-surface);
     box-shadow: var(--ci-shadow-control);
     color: var(--ci-text);
-    font-size: .875rem;
+    font-size: var(--ci-size-base);
     font-weight: var(--ci-weight-regular);
     line-height: 1.25;
     text-decoration: none;
@@ -39,7 +39,7 @@
     background: transparent;
   }
   [data-ciamix="control"][data-variant="link"] { color: var(--ci-accent-text); text-decoration: underline; }
-  [data-ciamix="control"][data-size="sm"] { min-height: 26px; padding: .25rem .5rem; font-size: .75rem; }
+  [data-ciamix="control"][data-size="sm"] { min-height: 26px; padding: .25rem .5rem; font-size: var(--ci-size-xs); }
   [data-ciamix="control"][data-size="lg"] { min-height: 36px; padding-inline: .875rem; }
   [data-ciamix="control"][data-size="icon"] { inline-size: 30px; padding-inline: 0; }
 
@@ -74,7 +74,7 @@
     background: var(--ci-surface);
     box-shadow: var(--ci-shadow-control);
     color: var(--ci-text);
-    font-size: .875rem;
+    font-size: var(--ci-size-base);
     line-height: 1.25;
   }
   [data-ciamix="input"]::placeholder, [data-ciamix="select-value"][data-placeholder] { color: var(--ci-muted); }
@@ -109,7 +109,7 @@
     border-radius: var(--ci-radius-sm);
     color: var(--ci-accent-text);
     background: var(--ci-accent-soft);
-    font-size: .8125rem;
+    font-size: var(--ci-size-sm);
   }
   [data-ciamix="number-group"] [data-ciamix="input"] { inline-size: 6ch; text-align: center; }
   [data-ciamix="scrub-area"] { width: fit-content; cursor: ew-resize; }
@@ -133,13 +133,13 @@
   [data-ciamix="legend"] { padding-inline: .25rem; }
   :is([data-ciamix="label"], [data-ciamix="legend"]) {
     color: var(--ci-text);
-    font-size: .875rem;
+    font-size: var(--ci-size-base);
     font-weight: var(--ci-weight-emphasis);
   }
   :is([data-ciamix="description"], [data-ciamix="empty"], [data-ciamix="group-label"], [data-ciamix="error"]) {
     margin: 0;
     color: var(--ci-muted);
-    font-size: .8125rem;
+    font-size: var(--ci-size-sm);
     line-height: 1.45;
   }
   [data-ciamix="error"] { color: var(--ci-danger); }
@@ -163,7 +163,7 @@
     background: var(--ci-accent);
     border-color: var(--ci-accent);
   }
-  [data-ciamix="checkbox-indicator"] { font-size: .75rem; line-height: 1; }
+  [data-ciamix="checkbox-indicator"] { font-size: var(--ci-size-xs); line-height: 1; }
   [data-ciamix="checkbox-indicator"]:empty::before {
     content: '';
     display: block;
@@ -239,6 +239,12 @@
     box-shadow: var(--ci-shadow-raised);
   }
   [data-ciamix="slider-thumb"]:focus-within { outline: 2px solid var(--ci-focus); outline-offset: 2px; }
+
+  @media (max-width: 767px) {
+    :is([data-ciamix="input"], [data-ciamix="otp-input"]) {
+      font-size: var(--ci-size-md);
+    }
+  }
 
   @media (pointer: coarse) {
     :is([data-ciamix="control"], [data-ciamix="select-trigger"], [data-ciamix="toggle"],
