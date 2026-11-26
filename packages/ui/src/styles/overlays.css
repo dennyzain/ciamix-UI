@@ -1,0 +1,202 @@
+@layer ciamix {
+  :is([data-ciamix="popup"], [data-ciamix="menu-popup"], [data-ciamix="toast"],
+    [data-ciamix="dialog-popup"], [data-ciamix="drawer-popup"]) {
+    border: 1px solid var(--ci-line);
+    border-radius: 12px;
+    color: var(--ci-text);
+    background: var(--ci-surface);
+    box-shadow: var(--ci-shadow-popup);
+    font-size: var(--ci-size-base);
+    line-height: 1.45;
+  }
+  :is([data-ciamix="positioner"], [data-ciamix="tooltip-positioner"]) {
+    z-index: 60;
+    max-width: calc(100vw - 1rem);
+  }
+  [data-ciamix="tooltip-positioner"] { z-index: 80; }
+  [data-ciamix="popup"] {
+    width: max-content;
+    max-width: min(20rem, calc(100vw - 1rem));
+    padding: .75rem;
+  }
+  [data-ciamix="menu-popup"] {
+    min-width: min(9rem, calc(100vw - 1rem));
+    max-width: min(22rem, calc(100vw - 1rem));
+    max-height: var(--available-height, 18rem);
+    padding: .25rem;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  :is([data-ciamix="popup"], [data-ciamix="menu-popup"], [data-ciamix="tooltip"], [data-ciamix="dialog-popup"]) {
+    transform-origin: var(--transform-origin, center);
+    transition: opacity var(--ci-speed) var(--ci-ease), scale var(--ci-speed) var(--ci-ease);
+  }
+  :is([data-ciamix="popup"], [data-ciamix="menu-popup"], [data-ciamix="tooltip"], [data-ciamix="dialog-popup"])
+    :where([data-ciamix="title"]) { margin: 0 0 .375rem; }
+  :is([data-ciamix="popup"], [data-ciamix="menu-popup"], [data-ciamix="tooltip"], [data-ciamix="dialog-popup"])
+    :where([data-ciamix="description"]) { margin: 0 0 .75rem; }
+  :is([data-ciamix="popup"], [data-ciamix="menu-popup"], [data-ciamix="tooltip"], [data-ciamix="dialog-popup"])
+    :where([data-ciamix="control"]) { margin-inline-end: .375rem; }
+  :is([data-ciamix="popup"], [data-ciamix="menu-popup"], [data-ciamix="tooltip"], [data-ciamix="dialog-popup"]):is(
+    [data-starting-style], [data-ending-style]) { opacity: 0; scale: .98; }
+
+  [data-ciamix="title"] {
+    margin: 0;
+    color: var(--ci-text);
+    font-size: var(--ci-size-md);
+    font-weight: var(--ci-weight-heading);
+    letter-spacing: -.02em;
+  }
+  [data-ciamix="group-label"], [data-ciamix="empty"] { padding: .375rem .5rem; }
+  [data-ciamix="group-label"] { font-weight: var(--ci-weight-emphasis); }
+  [data-ciamix="option-list"] { max-height: inherit; overflow: auto; overscroll-behavior: contain; }
+  [data-ciamix="option"] {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    min-height: 30px;
+    padding: .375rem .5rem;
+    border-radius: var(--ci-radius-sm);
+    color: var(--ci-text);
+    text-decoration: none;
+    cursor: default;
+  }
+  [data-ciamix="option"][data-highlighted] { background: var(--ci-hover); }
+  [data-ciamix="option"]:is([data-selected], [data-checked]) {
+    color: var(--ci-accent-text);
+    background: var(--ci-accent-soft);
+  }
+  [data-ciamix="option-indicator"] { color: var(--ci-accent-text); font-size: var(--ci-size-xs); }
+  [data-ciamix="option-indicator"]:empty::before { content: '✓'; }
+  [data-ciamix="select-scroll"] { text-align: center; color: var(--ci-muted); background: var(--ci-surface); }
+  [data-ciamix="context-target"] {
+    padding: .875rem;
+    border: 1px dashed var(--ci-control-edge);
+    border-radius: var(--ci-radius-md);
+    color: var(--ci-muted);
+    background: var(--ci-page);
+  }
+
+  [data-ciamix="navigation-menu"] { max-inline-size: 100%; }
+  [data-ciamix="nav-list"] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .375rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  [data-ciamix="nav-item"] { list-style: none; }
+  [data-ciamix="nav-link"] {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding-inline: .5rem;
+    border-radius: var(--ci-radius-sm);
+    color: var(--ci-accent-text);
+    font-size: var(--ci-size-base);
+    text-underline-offset: 3px;
+  }
+  [data-ciamix="nav-link"]:is(:hover, [data-active]) { background: var(--ci-accent-soft); }
+  [data-ciamix="nav-content"] { display: grid; align-content: start; }
+
+  [data-ciamix="modal-backdrop"] {
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+    background: var(--ci-scrim);
+    transition: opacity var(--ci-speed) var(--ci-ease);
+  }
+  [data-ciamix="modal-backdrop"]:is([data-starting-style], [data-ending-style]) { opacity: 0; }
+  :is([data-ciamix="dialog-viewport"], [data-ciamix="drawer-viewport"]) {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: grid;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  [data-ciamix="dialog-viewport"] { place-items: center; padding: 1rem; }
+  [data-ciamix="dialog-popup"] {
+    width: min(100%, 24rem);
+    max-height: 100%;
+    overflow: auto;
+    padding: 1rem;
+    border-radius: var(--ci-radius-panel);
+  }
+  [data-ciamix="dialog-popup"]:not(:where([data-ciamix="dialog-viewport"] *)) {
+    position: fixed;
+    z-index: 50;
+    inset: 0;
+    margin: auto;
+    width: min(calc(100% - 2rem), 24rem);
+    height: fit-content;
+    max-height: calc(100% - 2rem);
+  }
+  [data-ciamix="drawer-viewport"] { place-items: end stretch; }
+  [data-ciamix="drawer-viewport"]:has(> [data-swipe-direction="up"]) { place-items: start stretch; }
+  [data-ciamix="drawer-viewport"]:has(> [data-swipe-direction="right"]) { place-items: stretch end; }
+  [data-ciamix="drawer-viewport"]:has(> [data-swipe-direction="left"]) { place-items: stretch start; }
+  [data-ciamix="drawer-popup"] {
+    --ci-drawer-x: 0%;
+    --ci-drawer-y: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    padding: 1rem;
+    border-radius: var(--ci-radius-panel);
+    translate: var(--drawer-swipe-movement-x, 0px)
+      calc(var(--drawer-snap-point-offset, 0px) + var(--drawer-swipe-movement-y, 0px));
+    transition: translate var(--ci-speed) var(--ci-ease);
+  }
+  [data-ciamix="drawer-popup"][data-swipe-direction="up"] { --ci-drawer-y: -100%; }
+  [data-ciamix="drawer-popup"]:is([data-swipe-direction="right"], [data-swipe-direction="left"]) {
+    --ci-drawer-y: 0%;
+    width: min(22rem, 100vw);
+  }
+  [data-ciamix="drawer-popup"][data-swipe-direction="right"] { --ci-drawer-x: 100%; }
+  [data-ciamix="drawer-popup"][data-swipe-direction="left"] { --ci-drawer-x: -100%; }
+  [data-ciamix="drawer-popup"][data-swiping] { transition: none; }
+  [data-ciamix="drawer-popup"]:is([data-starting-style], [data-ending-style]) { translate: var(--ci-drawer-x) var(--ci-drawer-y); }
+  [data-ciamix="drawer-content"] { display: grid; justify-items: start; gap: .625rem; }
+  [data-ciamix="drawer-content"] > * { margin: 0; }
+
+  [data-ciamix="tooltip"] {
+    border-radius: var(--ci-radius-sm);
+    padding: .375rem .625rem;
+    max-width: 16rem;
+    background: var(--ci-tooltip);
+    color: var(--ci-on-tooltip);
+    box-shadow: var(--ci-shadow-control);
+    font-size: var(--ci-size-xs);
+  }
+  :is([data-ciamix="popup-arrow"], [data-ciamix="tooltip-arrow"])::before {
+    content: '';
+    display: block;
+    width: .5rem;
+    height: .5rem;
+    rotate: 45deg;
+    background: var(--ci-surface);
+  }
+  [data-ciamix="tooltip-arrow"]::before { background: var(--ci-tooltip); }
+  :is([data-ciamix="popup-arrow"], [data-ciamix="tooltip-arrow"])[data-side="top"] { bottom: -.25rem; }
+  :is([data-ciamix="popup-arrow"], [data-ciamix="tooltip-arrow"])[data-side="bottom"] { top: -.25rem; }
+  :is([data-ciamix="popup-arrow"], [data-ciamix="tooltip-arrow"])[data-side="left"] { right: -.25rem; }
+  :is([data-ciamix="popup-arrow"], [data-ciamix="tooltip-arrow"])[data-side="right"] { left: -.25rem; }
+
+  [data-ciamix="toast-viewport"] {
+    position: fixed;
+    z-index: 70;
+    inset-inline-end: 1rem;
+    inset-block-end: max(1rem, env(safe-area-inset-bottom));
+    width: min(22rem, calc(100vw - 2rem));
+    display: grid;
+    gap: .5rem;
+  }
+  [data-ciamix="toast"] { padding: .75rem; }
+  [data-ciamix="toast"][data-limited] { display: none; }
+  [data-ciamix="toast-content"] { display: grid; gap: .375rem; grid-template-columns: minmax(0, 1fr) auto; align-items: start; }
+  [data-ciamix="toast-content"] > :is([data-ciamix="title"], [data-ciamix="description"]) { grid-column: 1; margin: 0; }
+  [data-ciamix="toast-content"] > [data-ciamix="control"] { grid-column: 2; grid-row: 1 / span 2; }
+}

@@ -1,0 +1,15 @@
+/*
+ * Global setup required by Base UI (https://base-ui.com/react/overview/quick-start).
+ * Visual defaults are opt-in through @ciamix/ui/styles.css.
+ */
+
+/* Popups (dialogs, menus, tooltips) portal to <body>. A stacking context on the app root keeps them above page content.
+ * `#root` matches the playground's mount element. An app that mounts elsewhere must apply `isolation: isolate` to its own root. */
+#root {
+  isolation: isolate;
+}
+
+/* Lets dialog backdrops use position: absolute, which iOS 26+ Safari needs. */
+body {
+  position: relative;
+}

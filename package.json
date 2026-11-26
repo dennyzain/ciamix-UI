@@ -1,0 +1,14 @@
+{
+  "name": "ciamix-ui",
+  "private": true,
+  "packageManager": "pnpm@10.25.0",
+  "scripts": {
+    "dev": "pnpm --filter playground dev",
+    "build": "pnpm --filter playground build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "oxlint"
+  },
+  "devDependencies": {
+    "oxlint": "^1.95.0"
+  }
+}
